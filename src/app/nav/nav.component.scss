@@ -1,0 +1,41 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    img {
+        width: 150px;
+    }
+}
+
+.logo {
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 35%;
+    font-family: 'roboto-thin';
+    color: #FFFFFF;
+
+    a{
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:visited {
+        color: #FFFFFF;
+    }
+    
+}
+
+.red-button {
+    background-color: #9C0607;
+    padding: 10px;
+    border-radius: 60px;
+    color: #FFFFFF;
+}

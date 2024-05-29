@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ListMenuComponent } from './menu/components/list-menu/list-menu.component';
+import { MenuDetailsComponent } from './menu/components/menu-details/menu-details.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: "", component: HomepageComponent},
+  { path: "list-menus/:id", component: MenuDetailsComponent },
+  { path: "list-menus", component: ListMenuComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

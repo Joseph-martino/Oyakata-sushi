@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'calibri';
+    src: url('assets/fonts/calibri-font-family/calibri-regular.ttf') format('truetype');  
+  }
+
+  @font-face {
+    font-family: 'roboto-thin';
+    src: url('assets/fonts/roboto/Roboto-Thin.ttf') format('truetype');  
+  }
+
+  @font-face {
+    font-family: 'Raleway-ExtraLight';
+    src: url('assets/fonts/raleway/Raleway-ExtraLight.ttf') format('truetype');  
+  }
+
+  @font-face {
+    font-family: 'Raleway-Medium';
+    src: url('assets/fonts/raleway/Raleway-Medium.ttf') format('truetype');  
+  }
+
+  @font-face {
+    font-family: 'Raleway-Regular';
+    src: url('assets/fonts/raleway/Raleway-Regular.ttf') format('truetype');  
+  }
+
+  @font-face {
+    font-family: 'Raleway-Light';
+    src: url('assets/fonts/raleway/Raleway-Light.ttf') format('truetype');  
+  }
+
+
+html, body {
+    padding: 0;
+    margin: 0;
+}

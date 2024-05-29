@@ -1,0 +1,44 @@
+.banner-container {
+    position: relative;
+    font-family: 'Raleway-Light';
+}
+
+.footer-banner {
+    width: 100%;
+}
+
+.text-container {
+    position: absolute;
+    bottom: 35%;
+    right: 8%;
+    width: 26%;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+}
+
+.white-line {
+    height: 1px;
+    background-color: #FFFFFF;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 0 35px 0; 
+    width: 75%;
+
+    img {
+        height: 45px;
+    }
+
+    p {
+        color: #FFFFFF;
+    }
+}

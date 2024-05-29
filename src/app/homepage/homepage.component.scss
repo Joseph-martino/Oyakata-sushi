@@ -1,0 +1,41 @@
+section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 85px;
+}
+
+.text-container {
+    position: relative;
+    width: 30%;
+}
+
+.circle {
+    height: 224px;
+}
+
+.title-container {
+    position: absolute;
+    top: 56px;
+    left: 100px;
+    h2 {
+        font-family: 'Raleway-ExtraLight';
+        text-transform: uppercase;
+        font-size: 2.5rem;
+    }
+
+    p {
+        margin-top: 80px;
+        font-family: 'Raleway-ExtraLight';
+    }
+}
+
+.pictures-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+
+    img {
+        width: 250px;
+        height: 163px;
+    }
+}

@@ -1,0 +1,16 @@
+<div class="title-container">
+    <h2 class="menu-page-title">Nos Menus</h2>
+    <img src="assets/images/pages-pictures/cercle.png" alt="circle-picture">
+</div>
+
+<div *ngIf="menus" class="menu-grid">
+
+    <div *ngFor="let menu of menus" class="menu-thumbnail" (click)="onGoToDetailMenu(menu.id)" menuBorderCard>
+        <img class="menu-picture" [src]="'assets/images/menus-thumbnails/' + menu.picture" [alt]="'menu picture-' + menu.picture">
+
+        <div class="menu-name-container">
+            <img src="assets/images/pages-pictures/cercle.png" alt="circle-picture">
+            <h3>{{ menu.name | uppercase}}</h3>
+        </div>
+    </div>
+</div>

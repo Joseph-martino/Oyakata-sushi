@@ -1,0 +1,43 @@
+.title-container {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.menu-page-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Raleway-ExtraLight';
+    font-size: 2.5rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 75px;
+    width: 45%;
+    margin: 100px auto;
+}
+
+.menu-thumbnail {
+    box-shadow: -2px -2px 11px 5px rgba(0,0,0,0.25);
+    box-shadow: 5px 5px 9px 5px rgba(0,0,0,0.31);
+}
+
+.menu-picture {
+    width: 100%;
+    height: auto;
+}
+
+.menu-name-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+        height: 55px;
+    }
+
+    h3 {
+        font-family: 'Raleway-Light';
+    }
+
+}

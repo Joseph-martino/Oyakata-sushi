@@ -1,0 +1,31 @@
+<div *ngIf="menu" class="menu-card-wrapper">
+    <div class="menu-card">
+        <div class="picture-container">
+            <img [src]="'assets/images/menus-thumbnails/' + menu.picture" alt="">
+        </div>
+    
+        <div class="informations-wrapper">
+            <div class="title-container">
+                <h2>{{ menu.name | uppercase}}</h2>
+                <p class="red-line"></p>
+            </div>
+            <div class="informations-text-container">
+                <div class="row grey">
+                    <p>Contenu </p>
+                    <p>{{ menu.content }}</p>
+                </div>
+
+                <div class="row">
+                    <p>Prix</p>
+                    <p>{{ menu.price | currency }}</p>
+                </div>
+            </div>
+            <a (click)="onGoToMenusList()">RETOUR</a>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!menu">
+    <p>Le menu n'existe pas</p>
+</div>

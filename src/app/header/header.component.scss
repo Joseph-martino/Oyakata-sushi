@@ -1,0 +1,46 @@
+.banner-container {
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+}
+
+.banner-text-container {
+    position: absolute;
+    left: 6%;
+    bottom: 29%;
+    color: white;
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+        font-family: 'calibri';
+        margin: 0px 0 10px 0;
+    }
+
+    h3 {
+        font-family: 'roboto-thin';
+    }
+
+    p {
+        font-family: 'Raleway-ExtraLight';
+        width: 70%;
+        margin: 0;
+    }
+}
+
+.white-line {
+    height: 1px;
+    background-color: #FFFFFF;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.red-button {
+    background-color: #9C0607;
+    padding: 10px;
+    border-radius: 60px;
+    color: #FFFFFF;
+}

@@ -1,0 +1,53 @@
+.menu-card {
+    box-shadow: -2px -2px 11px 5px rgba(0,0,0,0.25);
+    box-shadow: 5px 5px 9px 5px rgba(0,0,0,0.31);
+    width: 60%;
+    display: flex;
+    margin: 0 auto;
+    height: 500px;
+}
+
+.picture-container {
+    width: 65%;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.informations-wrapper {
+    width: 35%;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 5px;
+        font-family: 'Raleway-Light';
+    }
+}
+
+.red-line {
+    height: 1px;
+    background-color: #9C0607;
+    height: 1px;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.informations-text-container {
+    p{
+        font-family: 'Raleway-Light';
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+    padding: 0 20px 0 20px;
+}
+
+.grey {
+    background-color: #F4F4F4;
+}
+
