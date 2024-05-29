@@ -1,6 +1,14 @@
 .title-container {
     position: relative;
     margin-bottom: 100px;
+    height: 82px;
+
+    img {
+        height: 100px;
+        position: absolute;
+        left: 42%;
+        bottom: 0%;
+    }
 }
 
 .menu-page-title {

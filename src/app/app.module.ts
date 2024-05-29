@@ -11,6 +11,7 @@ import { BorderCardDirective } from './border-card.directive';
 import { MenuModule } from './menu/menu.module';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavComponent,
     ListMenuComponent,
     BorderCardDirective,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

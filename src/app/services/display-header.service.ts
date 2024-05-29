@@ -5,8 +5,11 @@ import { HeaderInformations } from '../models/HeaderInformations';
   providedIn: 'root'
 })
 export class DisplayHeaderService {
+  
 
   private headerInformations: HeaderInformations[] = [
+
+    
 
     {
       title: "Oyaka sushi",
@@ -25,8 +28,8 @@ export class DisplayHeaderService {
     {
       title: "Détail menu",
       description: "Lorem ipsum dolor sit amet consectetur. Feugiat aenean vitae eleifend rhoncus viverra lobortis varius.",
-      banner: "assets/images/banners/list-menus-banner.png",
-      path: "/list-menus/:id"
+      banner: "assets/images/banners/menu-detail-banner.png", 
+      path: "/list-menus/"
     },
 
     {
@@ -39,7 +42,7 @@ export class DisplayHeaderService {
     {
       title: "La page n'existe pas",
       description: "",
-      banner: "assets/images/banners/list-menus-banner.png",
+      banner: "assets/images/banners/page-not-found-banner.png",
       path: "**"
     },
 
