@@ -12,6 +12,7 @@ import { MenuModule } from './menu/menu.module';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ListMenuComponent,
     BorderCardDirective,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

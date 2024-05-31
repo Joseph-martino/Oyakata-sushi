@@ -25,6 +25,17 @@ export class MenuService {
     )
   }
 
+  searchMenuListByName(term: string): Observable<Menu[]>{
+    if(term.length <= 1){
+      return of([]);
+    }
+    return this.http.get<Menu>(`http://localhost:8080/core/rest/menus/name/${term}`).pipe(
+      tap((menuList) => this.logInfo(menuList)),
+      catchError((error) => this.handleError(error, []))
+    );
+  }
+
+
   private logInfo(response: any){
     console.table(response);
   }
@@ -33,4 +44,5 @@ export class MenuService {
     console.error(error);
     return of(errorValue);
   }
+
 }

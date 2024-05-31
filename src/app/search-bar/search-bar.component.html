@@ -1,0 +1,13 @@
+<div class="search-bar-container">
+    <input
+    placeholder="Rechercher un menu"
+    #searchBox
+    (keyup)="onSearch(searchBox.value)">
+</div>
+
+<div class="collection">
+    <a *ngFor="let menu of menu$ |async"
+        (click)="onGoToMenu(menu)">
+        {{ menu.name }}
+    </a>
+</div>

@@ -3,6 +3,8 @@
     <img src="assets/images/pages-pictures/cercle.png" alt="circle-picture">
 </div>
 
+<app-search-bar></app-search-bar>
+
 <div *ngIf="menus" class="menu-grid">
 
     <div *ngFor="let menu of menus" class="menu-thumbnail" (click)="onGoToDetailMenu(menu.id)" menuBorderCard>
