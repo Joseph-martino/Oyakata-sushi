@@ -54,7 +54,11 @@ export class DisplayHeaderService {
     }
   ];
 
-  getHeaderInformationsByPath(path: string){
+  getHeaderInformationsByPath(path: string, routeId?: string){
+    if(routeId){
+      let headerInformationWithRouteid: HeaderInformations|undefined = this.headerInformations.find(element => element.title == 'Détail menu');
+      return headerInformationWithRouteid;
+    }
     return this.headerInformations.find(element => element.path == path);
   }
 }

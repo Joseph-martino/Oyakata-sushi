@@ -20,8 +20,24 @@ export class AppComponent {
       ).subscribe(event => 
       {
         const currentRoute = (event as NavigationEnd).url;
-        this.currentHeaderInformation = displayHeaderService.getHeaderInformationsByPath(currentRoute);
+        const routeId = this.extractIdFromRouteUrl(currentRoute);
+        if(routeId != null){
+          this.currentHeaderInformation = displayHeaderService.getHeaderInformationsByPath(currentRoute, routeId);
+        } else {
+          this.currentHeaderInformation = displayHeaderService.getHeaderInformationsByPath(currentRoute);
+        }
       });
+  }
+
+
+  extractIdFromRouteUrl(url: string) {
+    const regex = /\/(\d+)$/;
+    const match = url.match(regex);
+    if (match) {
+        const menuId = match[1];
+        return menuId;
+    } 
+    return null;
   }
   
 }
