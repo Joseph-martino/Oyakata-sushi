@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     BorderCardDirective,
     FooterComponent,
     PageNotFoundComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

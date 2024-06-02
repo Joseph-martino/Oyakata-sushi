@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Menu } from '../models/menu';
 import { Observable, catchError, of, tap } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,20 @@ export class MenuService {
     );
   }
 
-  getMenuList(): Observable<Menu[]>{
-    return this.http.get<Menu[]>('http://localhost:8080/core/rest/menus/').pipe(
+  // getMenuList(): Observable<Menu[]>{
+  //   return this.http.get<Menu[]>('http://localhost:8080/core/rest/menus/').pipe(
+  //     tap((menuList) => this.logInfo(menuList)),
+  //     catchError((error) =>  this.handleError(error,[])
+  //     )
+  //   )
+  // }
+
+  getMenuListForPage(pageNumber: number, pageSize: number): Observable<Menu[]>{
+    let params = new HttpParams();
+    params = params.set("pageNumber", pageNumber.toString());
+    params = params.set("pageSize", pageSize.toString());
+
+    return this.http.get<Menu[]>('http://localhost:8080/core/rest/menus/', { params: params }).pipe(
       tap((menuList) => this.logInfo(menuList)),
       catchError((error) =>  this.handleError(error,[])
       )
@@ -35,6 +47,12 @@ export class MenuService {
     );
   }
 
+  getNumberTotalOfMenus(): Observable<number>{
+    return this.http.get<number>('http://localhost:8080/core/rest/menus/total').pipe(
+      tap((totalMenuNumber) => this.logInfo(totalMenuNumber)),
+      catchError((error) => this.handleError(error, undefined))
+    );
+  }
 
   private logInfo(response: any){
     console.table(response);

@@ -16,3 +16,10 @@
         </div>
     </div>
 </div>
+
+<app-pagination
+    [totalNumberOfPages]="totalNumberOfPages$ |async"
+    [currentPageNumber]="currentPageNumber"
+    (selectedPage)="onGetCurrentPageMenus($event)"
+>
+</app-pagination>

@@ -1,0 +1,15 @@
+<div class="pagination-bar-container">
+    <a (click)="onGoToPage(1)">&#x00AB;</a>
+
+    <a *ngFor="let number of createLeftAndRightSidePagesNumberOfCurrentPageNumber()" 
+    (click)="onGoToPage(number)"
+    >
+    {{ number }}
+        <!--a (click)="onGoToPage(number)">{{ number }}</a-->
+    </a>
+
+    <a *ngIf="totalNumberOfPages" 
+        (click)="onGoToPage(totalNumberOfPages)">
+        &#x00BB;
+    </a>
+</div>
