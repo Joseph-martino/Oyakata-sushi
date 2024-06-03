@@ -36,6 +36,7 @@
 
 .red-hightlight {
     color: #9C0607;
+    margin: 0 5px
 }
 
 form {
@@ -95,8 +96,8 @@ form {
 
 .disabled {
 
-    color: black;
-    background-color: white;
+    background-color: #cccccc;
+    color: #666666;
     cursor: not-allowed;
 }
 
