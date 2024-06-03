@@ -16,10 +16,12 @@ export class NavComponent {
     this.router.navigateByUrl('/');
   }
 
-
-
   onGoToMenuPage(){
     this.router.navigateByUrl('list-menus');
+  }
+
+  onGoToReservationPage(){
+    this.router.navigateByUrl('reservation');
   }
 
 }

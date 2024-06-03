@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { PaginationComponent } from './pagination/pagination.component';
     FooterComponent,
     PageNotFoundComponent,
     SearchBarComponent,
-    PaginationComponent
+    PaginationComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     MenuModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 <app-header *ngIf="currentHeaderInformation"
+[ngClass]="{ 'reservation-header': currentHeaderInformation.title === 'Réservation' }"
 [title]="currentHeaderInformation.title"
 [description]="currentHeaderInformation.description"
 [banner]="currentHeaderInformation.banner"

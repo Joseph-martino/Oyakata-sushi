@@ -1,0 +1,45 @@
+<div class="glassmorphism-container">
+    <div class="form-header-container">
+        <p class=" row first-row">Envie de <span class="red-hightlight"> sushi</span> ?</p>
+        <p class="row second-row"><span class="red-hightlight">Reserver</span> votre table</p>
+    </div>
+    <form [formGroup]="reservationForm" >
+        <div class="form-group">
+            <label for="name">Nom*</label>
+            <input id="name" type="text" formControlName="familyName" placeholder="Durant">
+            <span *ngIf="isFormSubmitted && reservationForm.get('familyName')?.invalid" class="error-message-container">Le nom est requis</span>
+        </div>
+
+        <div class="form-group">
+            <label for="first-name">Prénom*</label>
+            <input id="first-name" type="text" formControlName="firstName" placeholder="Pierre">
+            <span *ngIf="isFormSubmitted && reservationForm.get('firstName')?.invalid" class="error-message-container">Le prénom est requis</span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email*</label>
+            <input id="email" type="email" formControlName="email" placeholder="monMail@mail.com">
+            <span *ngIf="isFormSubmitted && reservationForm.get('email')?.invalid" class="error-message-container">L'email est requis</span>
+        </div>
+
+        <div class="form-group">
+            <label for="numberOfPersons">Nombre de personnes*</label>
+            <input id="numberOfPersons" type="number" formControlName="numberOfPersons">
+            <span *ngIf="isFormSubmitted && reservationForm.get('numberOfPersons')?.invalid" class="error-message-container">Le nombre de personne est requis</span>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date*</label>
+            <input id="date" type="text" formControlName="reservationDateString" placeholder="2024-06-03">
+            <span *ngIf="isFormSubmitted && reservationForm.get('reservationDateString')?.invalid" class="error-message-container">La date est requise</span>
+        </div>
+
+        <div class="submit-button-container">
+            <button class="submit-button" type="submit" (click)="onSubmitForm()"
+                [ngClass]="{ 'disabled': reservationForm.invalid, 'enabled': !reservationForm.invalid }"
+                [disabled]="reservationForm.invalid">
+                Reserver
+            </button>
+        </div>
+    </form>
+</div>

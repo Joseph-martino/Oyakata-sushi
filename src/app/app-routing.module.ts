@@ -4,11 +4,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ListMenuComponent } from './menu/components/list-menu/list-menu.component';
 import { MenuDetailsComponent } from './menu/components/menu-details/menu-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 const routes: Routes = [
   { path: "", component: HomepageComponent},
   { path: "list-menus/:id", component: MenuDetailsComponent },
   { path: "list-menus", component: ListMenuComponent },
+  { path: "reservation", component: ReservationComponent},
   { path: "**", component: PageNotFoundComponent}
 ];
 
