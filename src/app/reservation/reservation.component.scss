@@ -106,3 +106,32 @@ form {
     background-color: #9C0607;
     cursor: pointer;
 }
+
+.success-message-container {
+    position: absolute;
+    top: 29%;
+    left: 36%;
+    background-color: white;
+    width: 25%;
+
+    img {
+        width: 100%;
+    }
+}
+
+.text-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Raleway-ExtraLight';
+    text-transform: uppercase;
+}
+
+
+.red-line {
+    height: 1px;
+    background-color: red;
+    width: 25%;
+}
