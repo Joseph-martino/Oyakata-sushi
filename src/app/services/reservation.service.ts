@@ -32,7 +32,6 @@ export class ReservationService {
                 this.reservation.reservationDate = new Date(formValue.reservationDateString);
             } else {
                 console.error("Invalid date format: ", formValue.reservationDateString);
-                // Gérer l'erreur de format de date ici
             }
 
             console.log(this.reservation);
