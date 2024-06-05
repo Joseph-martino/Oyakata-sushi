@@ -16,6 +16,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReservationSuccessMessageComponent } from './reservation-success-message/reservation-success-message.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     SearchBarComponent,
     PaginationComponent,
-    ReservationComponent
+    ReservationComponent,
+    ReservationSuccessMessageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     MenuModule,
     AppRoutingModule,
     ReactiveFormsModule
