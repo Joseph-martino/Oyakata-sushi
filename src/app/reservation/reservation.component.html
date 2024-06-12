@@ -8,31 +8,57 @@
         <div class="form-group">
             <label for="name">Nom*</label>
             <input id="name" type="text" formControlName="familyName" placeholder="Durant">
-            <span *ngIf="isFormSubmitted && reservationForm.get('familyName')?.invalid" class="error-message-container">Le nom est requis</span>
+            <span *ngIf="isFieldInvalid('familyName')" class="error-message-container">Le nom est requis</span>
+            <!--span *ngIf="isFormSubmitted && reservationForm.get('familyName')?.invalid" class="error-message-container">Le nom est requis</span-->
         </div>
 
         <div class="form-group">
             <label for="first-name">Prénom*</label>
             <input id="first-name" type="text" formControlName="firstName" placeholder="Pierre">
-            <span *ngIf="isFormSubmitted && reservationForm.get('firstName')?.invalid" class="error-message-container">Le prénom est requis</span>
+            <span *ngIf="isFieldInvalid('firstName')" class="error-message-container">Le prénom est requis</span>
+            <!--span *ngIf="isFormSubmitted && reservationForm.get('firstName')?.invalid" class="error-message-container">Le prénom est requis</span-->
         </div>
 
         <div class="form-group">
             <label for="email">Email*</label>
             <input id="email" type="email" formControlName="email" placeholder="monMail@mail.com">
-            <span *ngIf="isFormSubmitted && reservationForm.get('email')?.invalid" class="error-message-container">L'email est requis</span>
+            <span *ngIf="isFieldInvalid('email')" class="error-message-container">L'email est requis</span>
+            <!--span *ngIf="isFormSubmitted && reservationForm.get('email')?.invalid" class="error-message-container">L'email est requis</span-->
+        </div>
+
+        <div class="form-group">
+            <label for="reservationDate">Heure de la réservation*</label>
+            <div class="form-buttons-container">
+                <button class="form-button" *ngFor="let hour of  hoursOfReservation" (click)="selectTime(hour)"
+                [ngClass]="{selected: selectedHour === hour }">
+                    {{ hour }}
+                </button>
+            </div>
         </div>
 
         <div class="form-group">
             <label for="numberOfPersons">Nombre de personnes*</label>
-            <input id="numberOfPersons" type="number" formControlName="numberOfPersons">
-            <span *ngIf="isFormSubmitted && reservationForm.get('numberOfPersons')?.invalid" class="error-message-container">Le nombre de personne est requis</span>
+            <div class="form-buttons-container">
+                <button class="form-button" *ngFor="let number of  numberOfPersonsMax" (click)="selectNumberOfPersons(number)"
+                [ngClass]="{selected: selectedPersons === number }">
+                    {{ number }}
+                </button>
+                <span *ngIf="isFieldInvalid('numberOfPersons')" class="error-message-container">Le nombre de personnes est requis</span>
+                <span *ngIf="isFieldInvalid('numberOfPersons') && reservationForm.get('numberOfPersons')?.errors?.['required']" class="error-message-container">Le nombre de personnes est requis</span>
+                <span *ngIf="isFieldInvalid('numberOfPersons') && reservationForm.get('numberOfPersons')?.errors?.['min']" class="error-message-container">Le nombre de personnes doit être au moins 1</span>
+                <span *ngIf="isFieldInvalid('numberOfPersons') && reservationForm.get('numberOfPersons')?.errors?.['max']" class="error-message-container">Le nombre de personnes ne doit pas dépasser 9</span>
+            </div>
         </div>
+        
 
         <div class="form-group">
-            <label for="date">Date*</label>
-            <input id="date" type="text" formControlName="reservationDateString" placeholder="2024-06-03">
-            <span *ngIf="isFormSubmitted && reservationForm.get('reservationDateString')?.invalid" class="error-message-container">La date est requise</span>
+            <mat-form-field>
+            <mat-label>Choisissez une date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="reservationDate">
+            <mat-hint>jour/mois/année</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker></mat-datepicker>
+            </mat-form-field>
         </div>
 
         <div class="submit-button-container">

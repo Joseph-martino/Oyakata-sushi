@@ -14,31 +14,60 @@ export class ReservationService {
   constructor(private http: HttpClient) { }
 
 
-  createReservation(formValue: {firstName: string, familyName: string, email: string, numberOfPersons: number, reservationDateString: string}): Observable<Reservation> {
-    return this.getNumberTotalOfReservations().pipe(
-        switchMap(reservationNumber => {
-            this.reservationNumber = reservationNumber +1;
-            console.log(this.reservationNumber);
+//   createReservation(formValue: {firstName: string, familyName: string, email: string, numberOfPersons: number, reservationDate: string}): Observable<Reservation> {
+//     return this.getNumberTotalOfReservations().pipe(
+//         switchMap(reservationNumber => {
+//             this.reservationNumber = reservationNumber +1;
 
-            this.reservation = new Reservation();
-            this.reservation.firstName = formValue.firstName;
-            this.reservation.familyName = formValue.familyName;
-            this.reservation.reservationNumber = `N°${this.reservationNumber.toString()}`;
-            this.reservation.email = formValue.email;
-            this.reservation.numberOfPersons = formValue.numberOfPersons;
+//             this.reservation = new Reservation();
+//             this.reservation.firstName = formValue.firstName;
+//             this.reservation.familyName = formValue.familyName;
+//             this.reservation.reservationNumber = `N°${this.reservationNumber.toString()}`;
+//             this.reservation.email = formValue.email;
+//             this.reservation.numberOfPersons = formValue.numberOfPersons;
 
-            const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-            if (dateRegex.test(formValue.reservationDateString)) {
-                this.reservation.reservationDate = new Date(formValue.reservationDateString);
-            } else {
-                console.error("Invalid date format: ", formValue.reservationDateString);
-            }
+//             const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+//             if (dateRegex.test(formValue.reservationDate)) {
+//                 this.reservation.reservationDate = new Date(formValue.reservationDate);
+//                 console.log("service: "  + this.reservation.reservationDate);
+//             } else {
+//                 console.error("Invalid date format: ", formValue.reservationDate);
+//             }
 
-            console.log(this.reservation);
+//             console.log(this.reservation);
 
-            return this.http.post<Reservation>('http://localhost:8080/core/rest/reservation/create', this.reservation);
-        })
-    );
+//             return this.http.post<Reservation>('http://localhost:8080/core/rest/reservation/create', this.reservation);
+//         })
+//     );
+// }
+
+createReservation(formValue: {firstName: string, familyName: string, email: string, numberOfPersons: number, reservationDate: string}): Observable<Reservation|null> {
+  return this.getNumberTotalOfReservations().pipe(
+      switchMap(reservationNumber => {
+          this.reservationNumber = reservationNumber +1;
+
+          this.reservation = new Reservation();
+          this.reservation.firstName = formValue.firstName;
+          this.reservation.familyName = formValue.familyName;
+          this.reservation.reservationNumber = `N°${this.reservationNumber.toString()}`;
+          this.reservation.email = formValue.email;
+          this.reservation.numberOfPersons = formValue.numberOfPersons;
+
+          // Valider et assigner la date
+          const dateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/;
+          if (dateRegex.test(formValue.reservationDate)) {
+              this.reservation.reservationDate = new Date(formValue.reservationDate);
+              console.log("service: " + this.reservation.reservationDate);
+          } else {
+              console.error("Invalid date format: ", formValue.reservationDate);
+              return of(null); // Retourner un observable null si le format est invalide
+          }
+
+          console.log(this.reservation);
+
+          return this.http.post<Reservation>('http://localhost:8080/core/rest/reservation/create', this.reservation);
+      })
+  );
 }
 
 
