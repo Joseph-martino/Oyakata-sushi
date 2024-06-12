@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { ReservationService } from '../services/reservation.service';
+import { Reservation } from '../models/Reservation';
 
 @Component({
 selector: 'app-reservation',
@@ -13,6 +14,7 @@ export class ReservationComponent implements OnInit {
     emailRegex!: RegExp;
     isFormSubmitted = false;
     showSuccessMessage = false;
+    reservation!: Reservation|null;
     numberOfPersonsMax: number[] = [1,2,3,4,5,6,7,8,9];
     hoursOfReservation: string[] = ['12:00','12:30', '13:00', '13:30', '14:00', '18:00', '18:30', '19:00', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'];
     selectedHour?: string; // a termiiner, css sur bouton selectionné
@@ -79,7 +81,14 @@ export class ReservationComponent implements OnInit {
     
                 this.reservationService.createReservation(this.reservationForm.value).subscribe({
                     next: (reservation) => {
+                        this.reservation = reservation;
                         this.showSuccessMessage = true;
+                        console.log("message de succès affiché");
+
+                        setTimeout(() => {
+                            this.showSuccessMessage = false;
+                            console.log("Message de succès masqué après 2 secondes");
+                        }, 2000);
                     },
                     error: (error) => {
                         console.error('Une erreur s\'est produite lors de la création de la réservation :', error);
