@@ -1,13 +1,26 @@
-<div class="search-bar-container">
+<div *ngIf="menus$" class="search-bar-container">
     <input
     placeholder="Rechercher un menu"
     #searchBox
     (keyup)="onSearch(searchBox.value)">
 </div>
 
-<div class="collection">
-    <a *ngFor="let menu of menu$ |async"
+<div *ngIf="menus$" class="collection">
+    <a *ngFor="let menu of menus$ |async"
         (click)="onGoToMenu(menu)">
         {{ menu.name }}
     </a>
 </div>
+
+<!-- <div *ngIf="sushis$" class="search-bar-container">
+    <input
+    placeholder="Rechercher un sushi"
+    #searchBox
+    (keyup)="onSearch(searchBox.value)">
+</div>
+
+<div *ngIf="sushis$" class="collection">
+    <div *ngFor="let sushi of sushis$ |async">
+        {{ sushi.name }}
+    </div>
+</div> -->

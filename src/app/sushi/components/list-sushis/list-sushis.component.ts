@@ -39,8 +39,6 @@ export class ListSushisComponent implements OnInit{
 
     this.sushiService.getSushisListForPage(this.pageNumber, this.pageSize)
     .subscribe(listSushis => this.sushis = listSushis);
-
-    console.log(this.sushis);
   }
 
   onSelectByCategory(categoryName: string){

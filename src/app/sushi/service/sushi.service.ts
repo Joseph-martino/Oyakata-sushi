@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of, tap } from 'rxjs';
+import { Observable, Subject, catchError, of, tap } from 'rxjs';
 import { Sushi } from '../models/sushi';
 import { Category } from '../../models/Category';
 
@@ -36,6 +36,14 @@ export class SushiService {
     );
   }
 
+  searchSushisListByTerm(term: string){
+    console.log("service sushi by term");
+    return this.http.get<Sushi[]>(`http://localhost:8080/core/rest/sushis/name/${term}`).pipe(
+      tap((listSushis) => this.logInfo(listSushis)),
+      catchError((error) => this.logError(error, []))
+    );
+  }
+
   private logInfo(response: any){
     console.table(response);
   }
@@ -43,6 +51,5 @@ export class SushiService {
   private logError(error: Error, errorValue: any){
     console.error(error);
     return of(errorValue);
-
   }
 }
