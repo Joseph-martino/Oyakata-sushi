@@ -29,7 +29,8 @@ export class ListMenuComponent implements OnInit{
 
     this.totalNumberOfPages$ = this.totalNumberOfMenus$.pipe(
       map(numberOfMenus  => Math.ceil(numberOfMenus /this.pageSize))
-    )
+    );
+
     this.menuService.getMenuListForPage(this.pageNumber, this.pageSize)
     .subscribe(menuList => this.menus = menuList);
       

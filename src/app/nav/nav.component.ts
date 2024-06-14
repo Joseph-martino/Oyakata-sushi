@@ -24,4 +24,8 @@ export class NavComponent {
     this.router.navigateByUrl('reservation');
   }
 
+  onGoToSushiListPage(){
+    this.router.navigateByUrl('list-sushis');
+  }
+
 }

@@ -26,6 +26,14 @@ export class DisplayHeaderService {
     },
 
     {
+      title: "Sushi à l'unité",
+      description: "Lorem ipsum dolor sit amet consectetur. Feugiat aenean vitae eleifend rhoncus viverra lobortis varius.",
+      banner: "assets/images/banners/list-sushis-banner.png",
+      path: "/list-sushis"
+    },
+
+
+    {
       title: "Détail menu",
       description: "Lorem ipsum dolor sit amet consectetur. Feugiat aenean vitae eleifend rhoncus viverra lobortis varius.",
       banner: "assets/images/banners/menu-detail-banner.png", 

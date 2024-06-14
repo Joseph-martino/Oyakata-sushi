@@ -1,0 +1,77 @@
+.categories-container {
+    display: flex;
+    width: 46%;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto;
+    padding: 50px;
+    color: #7D6969;
+
+}
+
+.category-button {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.category-text {
+    margin: 0 0 0 8px;
+}
+
+.selected {
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    background-color: #9C0607;
+    color: white;
+    font-weight: bold;
+}
+
+.sushis-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    width: 82%;
+    margin: 40px auto;
+
+    img {
+        width: 100%;
+    }
+}
+
+.sushi-thumbnail {
+    box-shadow: -2px -2px 11px 5px rgba(0,0,0,0.25);
+    box-shadow: 5px 5px 9px 5px rgba(0,0,0,0.31);
+}
+
+.sushi-name-container {
+    display: flex;
+    align-items: center;
+    img {
+        height: 55px;
+        width: 55px;
+    }
+
+    h3 {
+        font-family: 'Raleway-Light';
+        margin: 0 0 0 10px;
+    }
+}
+
+.icon {
+    font-size: 48px;
+    color: #333;
+}
+
+.sushi-informations-container {
+    width: 85%;
+    margin: 5px auto;
+
+    i {
+        color: #7D6969;
+    }
+}
+
+.bold {
+    font-weight: 500;
+}

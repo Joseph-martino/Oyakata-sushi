@@ -17,7 +17,7 @@
 
                 <div class="row">
                     <p>Prix</p>
-                    <p>{{ menu.price | currency }}</p>
+                    <p>{{ menu.price | currency: 'EUR' }}</p>
                 </div>
             </div>
             <a (click)="onGoToMenusList()">RETOUR</a>

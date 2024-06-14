@@ -26,6 +26,7 @@ import {MatCardModule} from '@angular/material/card';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { ListSushisComponent } from './sushi/components/list-sushis/list-sushis.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -42,7 +43,8 @@ registerLocaleData(localeFr, 'fr');
     SearchBarComponent,
     PaginationComponent,
     ReservationComponent,
-    ReservationSuccessMessageComponent
+    ReservationSuccessMessageComponent,
+    ListSushisComponent
   ],
   imports: [
     BrowserModule,
