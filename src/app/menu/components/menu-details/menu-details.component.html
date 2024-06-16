@@ -16,11 +16,16 @@
                 </div>
 
                 <div class="row">
+                    <p>Catégorie </p>
+                    <p>Menu {{ menu.category.name }} <i class="{{ menu.category.icon }}"></i></p>
+                </div>
+
+                <div class="row grey">
                     <p>Prix</p>
                     <p>{{ menu.price | currency: 'EUR' }}</p>
                 </div>
             </div>
-            <a (click)="onGoToMenusList()">RETOUR</a>
+            <a class="back-button" (click)="onGoToMenusList()">RETOUR</a>
         </div>
     </div>
 </div>

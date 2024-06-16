@@ -1,3 +1,37 @@
+.categories-container {
+    display: flex;
+    width: 46%;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto;
+    padding: 50px;
+    color: #7D6969;
+
+}
+
+.category-button {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.category-text {
+    margin: 0 0 0 8px;
+}
+
+.card-menu-icon {
+    color: #7D6969;
+}
+
+.selected {
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    background-color: #9C0607;
+    color: white;
+    font-weight: bold;
+}
+
+
 .title-container {
     position: relative;
     margin-bottom: 50px;
@@ -46,5 +80,16 @@
 
     h3 {
         font-family: 'Raleway-Light';
+        margin: 0;
+    }
+}
+
+.menu-text-container{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway-Light';
+
+    p {
+        margin: 0;
     }
 }

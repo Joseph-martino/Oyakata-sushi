@@ -17,14 +17,6 @@ export class MenuService {
     );
   }
 
-  // getMenuList(): Observable<Menu[]>{
-  //   return this.http.get<Menu[]>('http://localhost:8080/core/rest/menus/').pipe(
-  //     tap((menuList) => this.logInfo(menuList)),
-  //     catchError((error) =>  this.handleError(error,[])
-  //     )
-  //   )
-  // }
-
   getMenuListForPage(pageNumber: number, pageSize: number): Observable<Menu[]>{
     let params = new HttpParams();
     params = params.set("pageNumber", pageNumber.toString());
@@ -34,7 +26,14 @@ export class MenuService {
       tap((menuList) => this.logInfo(menuList)),
       catchError((error) =>  this.handleError(error,[])
       )
-    )
+    );
+  }
+
+  getMenusListByCategory(categoryName: string): Observable<Menu[]>{
+    return this.http.get<Menu[]>(`http://localhost:8080/core/rest/menus/category/${categoryName}`).pipe(
+      tap((listMenus) => this.logInfo(listMenus)),
+      catchError((error) => this.handleError(error, []))
+    );
   }
 
   searchMenuListByName(term: string): Observable<Menu[]>{

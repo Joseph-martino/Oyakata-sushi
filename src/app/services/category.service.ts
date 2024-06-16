@@ -10,8 +10,15 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  getcategories(): Observable<Category[]> {
-    return this.http.get<Category[]>('http://localhost:8080/core/rest/category/').pipe(
+  getcategoriesForSushis(): Observable<Category[]> {
+    return this.http.get<Category[]>('http://localhost:8080/core/rest/category/categorySushi').pipe(
+      tap((categoriesList) => this.logInfo(categoriesList)),
+      catchError((error) => this.handleError(error, []))
+    );
+  }
+
+  getcategoriesForMenus(): Observable<Category[]> {
+    return this.http.get<Category[]>('http://localhost:8080/core/rest/category/categoryMenu').pipe(
       tap((categoriesList) => this.logInfo(categoriesList)),
       catchError((error) => this.handleError(error, []))
     );

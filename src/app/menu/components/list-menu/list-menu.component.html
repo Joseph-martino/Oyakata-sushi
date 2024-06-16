@@ -3,6 +3,15 @@
     <img src="assets/images/pages-pictures/cercle.png" alt="circle-picture">
 </div>
 
+<div *ngIf="categories" class="categories-container">
+    <div *ngFor="let category of categories">
+        <span class="category-button"
+        [ngClass]="{'selected': isSelectedCategory === category.name }"
+        (click)="onSelectByCategory(category.name)"><i class="{{ category.icon }}"></i><span class="category-text">{{ category.name }}</span></span>
+    </div>
+</div>
+
+
 <app-search-bar></app-search-bar>
 
 <div *ngIf="menus" class="menu-grid">
@@ -12,7 +21,10 @@
 
         <div class="menu-name-container">
             <img src="assets/images/pages-pictures/cercle.png" alt="circle-picture">
-            <h3>{{ menu.name | uppercase}}</h3>
+            <div class="menu-text-container">
+                <h3>{{ menu.name | uppercase}}</h3>
+                <p>Menu {{ menu.category.name }} <i class="card-menu-icon" class="{{ menu.category.icon }}"></i></p>
+            </div>
         </div>
     </div>
 </div>

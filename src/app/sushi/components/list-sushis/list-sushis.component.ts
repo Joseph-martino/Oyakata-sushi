@@ -33,7 +33,7 @@ export class ListSushisComponent implements OnInit{
       map(totalNumberOfSushis => Math.ceil(totalNumberOfSushis/this.pageSize))
     );
 
-    this.categoryService.getcategories().subscribe(
+    this.categoryService.getcategoriesForSushis().subscribe(
       listCategories => this.categories = listCategories
     );
 

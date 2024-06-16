@@ -39,6 +39,10 @@
 }
 
 .informations-text-container {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     p{
         font-family: 'Raleway-Light';
     }
@@ -55,3 +59,14 @@
     background-color: #F4F4F4;
 }
 
+i {
+    color: #7D6969;
+}
+
+.back-button {
+    cursor: pointer;
+    padding: 10px 15px 10px 15px;
+    background: #9C0607;
+    border-radius: 50px;
+    color: white;
+}
