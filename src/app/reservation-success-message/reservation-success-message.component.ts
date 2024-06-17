@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class ReservationSuccessMessageComponent {
 
+  @Input() reservation!: Reservation;
+
   constructor(private router: Router){
 
   }

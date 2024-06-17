@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { ReservationService } from '../services/reservation.service';
 import { Reservation } from '../models/Reservation';
+import { Router } from '@angular/router';
 
 @Component({
 selector: 'app-reservation',
@@ -23,7 +24,8 @@ export class ReservationComponent implements OnInit {
     constructor(
     private formBuilder: FormBuilder,
     private reservationService: ReservationService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -83,12 +85,15 @@ export class ReservationComponent implements OnInit {
                     next: (reservation) => {
                         this.reservation = reservation;
                         this.showSuccessMessage = true;
-                        console.log("message de succès affiché");
 
                         setTimeout(() => {
                             this.showSuccessMessage = false;
-                            console.log("Message de succès masqué après 2 secondes");
-                        }, 2000);
+
+                            setTimeout(() => {
+                                this.router.navigateByUrl("/");
+                            }, 3000);
+                        }, 4000);
+                        
                     },
                     error: (error) => {
                         console.error('Une erreur s\'est produite lors de la création de la réservation :', error);

@@ -71,7 +71,10 @@
     </form>
 </div>
 
-<app-reservation-success-message *ngIf="showSuccessMessage && reservation"></app-reservation-success-message>
+<app-reservation-success-message 
+    *ngIf="showSuccessMessage && reservation"
+    [reservation]="reservation">
+</app-reservation-success-message>
 
 
 
