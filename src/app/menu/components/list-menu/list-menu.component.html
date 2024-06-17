@@ -14,6 +14,8 @@
 
 <app-search-bar></app-search-bar>
 
+<app-loading *ngIf="isLoading" [loading]="isLoading"></app-loading>
+
 <div *ngIf="menus" class="menu-grid">
 
     <div *ngFor="let menu of menus" class="menu-thumbnail" (click)="onGoToDetailMenu(menu.id)" menuBorderCard>

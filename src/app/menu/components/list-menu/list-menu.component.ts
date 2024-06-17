@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 import { Menu } from '../../models/menu';
 import { Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError, timeout } from 'rxjs';
 import { Category } from '../../../models/Category';
 import { CategoryService } from '../../../services/category.service';
 
@@ -21,6 +21,7 @@ export class ListMenuComponent implements OnInit{
   pageSize: number = 6;
   categories!: Category[];
   isSelectedCategory!: string;
+  isLoading:boolean = true;
 
 
   constructor(private menuService: MenuService, private router: Router, private categoryService :CategoryService){
@@ -28,6 +29,7 @@ export class ListMenuComponent implements OnInit{
   }
   
   ngOnInit(): void {
+    this.isLoading = true;
     
     this.totalNumberOfMenus$ = this.menuService.getNumberTotalOfMenus();
 
@@ -39,13 +41,29 @@ export class ListMenuComponent implements OnInit{
       listCategories => this.categories = listCategories
     );
 
-    this.menuService.getMenuListForPage(this.pageNumber, this.pageSize)
-    .subscribe(menuList => this.menus = menuList);
-      
+    this.menuService.getMenuListForPage(this.pageNumber, this.pageSize).pipe(
+      timeout(7000),
+      catchError((error) => {
+        this.isLoading = false,
+        this.router.navigateByUrl("/404-error")
+        return throwError(() => new Error("A problem has occured, please try late"))
+      })
+    )
+    .subscribe(menuList => {this.menus = menuList,
+      this.isLoading = false;
+      }
+    ); 
   }
 
   onGetCurrentPageMenus(pageNumber: number){
-    this.menuService.getMenuListForPage(pageNumber, this.pageSize)
+    this.menuService.getMenuListForPage(pageNumber, this.pageSize).pipe(
+      timeout(7000),
+      catchError((error) => {
+        this.isLoading = false,
+        this.router.navigateByUrl("/404-error")
+        return throwError(() => new Error("A problem has occured, please try late"))
+      })
+    )
     .subscribe(menuList => this.menus = menuList);
   }
 
@@ -56,8 +74,14 @@ export class ListMenuComponent implements OnInit{
     );
 
     if(categoryName === "Tous les menus"){
-      console.log("tous les menus: " + categoryName);
-      this.menuService.getMenuListForPage(this.pageNumber, this.pageSize)
+      this.menuService.getMenuListForPage(this.pageNumber, this.pageSize).pipe(
+        timeout(7000),
+        catchError((error) => {
+          this.isLoading = false,
+          this.router.navigateByUrl("/404-error")
+          return throwError(() => new Error("A problem has occured, please try late"))
+        })
+      )
     .subscribe(listMenus => this.menus = listMenus);
     }
   }

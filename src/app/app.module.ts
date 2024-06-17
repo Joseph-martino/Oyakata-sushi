@@ -27,6 +27,7 @@ import {provideNativeDateAdapter} from '@angular/material/core';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { ListSushisComponent } from './sushi/components/list-sushis/list-sushis.component';
+import { LoadingComponent } from './loading/loading.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -44,7 +45,8 @@ registerLocaleData(localeFr, 'fr');
     PaginationComponent,
     ReservationComponent,
     ReservationSuccessMessageComponent,
-    ListSushisComponent
+    ListSushisComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: "list-menus", component: ListMenuComponent },
   { path: "list-sushis", component: ListSushisComponent},
   { path: "reservation", component: ReservationComponent},
-  { path: "**", component: PageNotFoundComponent}
+  { path: "404-error", component: PageNotFoundComponent },
+  { path: "**", redirectTo: "/404-error"}
 ];
 
 @NgModule({
