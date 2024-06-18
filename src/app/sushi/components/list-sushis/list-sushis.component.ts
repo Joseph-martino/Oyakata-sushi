@@ -41,7 +41,7 @@ export class ListSushisComponent implements OnInit{
     );
 
     this.sushiService.getSushisListForPage(this.pageNumber, this.pageSize).pipe(
-      timeout(7000),
+      timeout(9000),
       catchError((error) => {
         this.isLoading = false;
         this.router.navigateByUrl("/404-error")
@@ -63,7 +63,7 @@ export class ListSushisComponent implements OnInit{
     if(categoryName === "tous"){
       console.log("tous: " + categoryName);
       this.sushiService.getSushisListForPage(this.pageNumber, this.pageSize).pipe(
-        timeout(7000),
+        timeout(9000),
         catchError((error) => {
           this.isLoading = false;
           this.router.navigateByUrl("/404-error")
@@ -76,7 +76,7 @@ export class ListSushisComponent implements OnInit{
 
   onGetCurrentPageSushi(pageNumber: number){
     this.sushiService.getSushisListForPage(pageNumber, this.pageSize).pipe(
-      timeout(7000),
+      timeout(9000),
       catchError((error) => {
         this.isLoading = false;
         this.router.navigateByUrl("/404-error")

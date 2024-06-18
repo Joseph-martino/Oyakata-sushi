@@ -42,7 +42,7 @@ export class ListMenuComponent implements OnInit{
     );
 
     this.menuService.getMenuListForPage(this.pageNumber, this.pageSize).pipe(
-      timeout(7000),
+      timeout(9000),
       catchError((error) => {
         this.isLoading = false,
         this.router.navigateByUrl("/404-error")
@@ -57,7 +57,7 @@ export class ListMenuComponent implements OnInit{
 
   onGetCurrentPageMenus(pageNumber: number){
     this.menuService.getMenuListForPage(pageNumber, this.pageSize).pipe(
-      timeout(7000),
+      timeout(9000),
       catchError((error) => {
         this.isLoading = false,
         this.router.navigateByUrl("/404-error")
@@ -75,7 +75,7 @@ export class ListMenuComponent implements OnInit{
 
     if(categoryName === "Tous les menus"){
       this.menuService.getMenuListForPage(this.pageNumber, this.pageSize).pipe(
-        timeout(7000),
+        timeout(9000),
         catchError((error) => {
           this.isLoading = false,
           this.router.navigateByUrl("/404-error")
