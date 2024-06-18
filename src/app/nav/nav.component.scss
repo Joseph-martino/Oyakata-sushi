@@ -31,7 +31,12 @@ nav {
     a:visited {
         color: #FFFFFF;
     }
-    
+}
+
+.tab-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    font-weight: bold;
 }
 
 .red-button {
@@ -39,4 +44,8 @@ nav {
     padding: 10px;
     border-radius: 60px;
     color: #FFFFFF;
+}
+
+.red-button:hover {
+    font-weight: bold;
 }
