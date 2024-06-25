@@ -29,7 +29,8 @@ export class ReservationComponent implements OnInit {
         new Date('2024-08-15'), // Assomption
         new Date('2024-11-01'), // Toussaint
         new Date('2024-11-11'), // Armistice
-        new Date('2024-12-25')  // Noël
+        new Date('2024-12-25'),  // Noël
+        new Date('2025-01-01')  // Jour de l'An
     ];
 
     constructor(

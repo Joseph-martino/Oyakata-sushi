@@ -47,6 +47,7 @@
 .sushi-name-container {
     display: flex;
     align-items: center;
+    margin-left: 15px;
     img {
         height: 55px;
         width: 55px;
@@ -55,6 +56,9 @@
     h3 {
         font-family: 'Raleway-Light';
         margin: 0 0 0 10px;
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        text-decoration-color: #9C0607;
     }
 }
 
