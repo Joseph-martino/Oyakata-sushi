@@ -54,7 +54,7 @@
         <div class="form-group">
             <mat-form-field>
             <mat-label>Choisissez une date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="reservationDate">
+            <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" formControlName="reservationDate" placeholder="jj/mm/aaaa">
             <mat-hint>jour/mois/année</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker touchUi #picker></mat-datepicker>

@@ -18,8 +18,19 @@ export class ReservationComponent implements OnInit {
     reservation!: Reservation|null;
     numberOfPersonsMax: number[] = [1,2,3,4,5,6,7,8,9];
     hoursOfReservation: string[] = ['12:00','12:30', '13:00', '13:30', '14:00', '18:00', '18:30', '19:00', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00'];
-    selectedHour?: string; // a termiiner, css sur bouton selectionné
-    selectedPersons?: number; // a terminer css sur bouton selectionné
+    selectedHour?: string; 
+    selectedPersons?: number; 
+    holidays: Date[] = [
+        new Date('2024-01-01'), // Jour de l'An
+        new Date('2024-04-01'), // Pâques
+        new Date('2024-05-01'), // Fête du Travail
+        new Date('2024-05-08'), // Victoire 1945
+        new Date('2024-07-14'), // Fête Nationale
+        new Date('2024-08-15'), // Assomption
+        new Date('2024-11-01'), // Toussaint
+        new Date('2024-11-11'), // Armistice
+        new Date('2024-12-25')  // Noël
+    ];
 
     constructor(
     private formBuilder: FormBuilder,
@@ -39,6 +50,23 @@ export class ReservationComponent implements OnInit {
             reservationDate: [null, Validators.required]
         });
     }
+
+    dateFilter = (d: Date | null): boolean => {
+        if (!d) {
+            return true;
+        }
+        const day = d.getDay();
+        const isMonday = day === 1; // 0 = dimanche, 1 = lundi, etc.
+        const isHoliday = this.holidays.some(holidayDay => this.areDatesEqual(holidayDay, d));
+        return !isMonday && !isHoliday; 
+    };
+    
+    areDatesEqual(date1: Date, date2: Date): boolean {
+        return date1.getDate() === date2.getDate() &&
+            date1.getMonth() === date2.getMonth() &&
+            date1.getFullYear() === date2.getFullYear();
+    }
+    
 
     selectTime(hour: string){
         this.selectedHour = hour;
