@@ -1,0 +1,52 @@
+<form [formGroup]="createForm">
+
+    <div class="form-group">
+        <label for="name">Nom*</label>
+        <input id="name" type="text" formControlName="familyName" placeholder="Durant">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Prénom*</label>
+        <input id="name" type="text" formControlName="firstName" placeholder="Paul">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Email*</label>
+        <input id="name" type="email" formControlName="email" placeholder="pauldurant@gmail.com">
+    </div>
+
+    <div class="form-group">
+        <label for="name">mot de passe*</label>
+        <input id="name" type="text" formControlName="password" placeholder="Entrez votremot de passe">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Adresse*</label>
+        <input id="name" type="text" formControlName="addressLine" placeholder="88, rue de Paris">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Code postal*</label>
+        <input id="name" type="text" formControlName="zipCode" placeholder="75000">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Ville*</label>
+        <input id="name" type="text" formControlName="city" placeholder="Paris">
+    </div>
+
+    <div class="submit-button-container">
+        <button class="submit-button" type="submit" (click)="onSubmitForm()">S'inscrire</button>
+    </div>
+
+</form>
+
+<div *ngIf="customer">
+    <p>{{ customer.firstName }}</p>
+    <p>{{ customer.familyName }}</p>
+    <p>{{ customer.email }}</p>
+    <p>{{ customer.addressLine }}</p>
+    <p>{{ customer.zipCode }}</p>
+    <p>{{ customer.city }}</p>
+
+</div>
