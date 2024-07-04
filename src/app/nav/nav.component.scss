@@ -5,14 +5,11 @@ header {
     position: absolute;
     top: 0;
     width: 100%;
-
-    img {
-        width: 150px;
-    }
 }
 
 .logo {
     cursor: pointer;
+    width: 150px;
 }
 
 nav {
@@ -48,4 +45,9 @@ nav {
 
 .red-button:hover {
     font-weight: bold;
+}
+
+.login-icon {
+    height: 50px;
+    width: 50px;
 }

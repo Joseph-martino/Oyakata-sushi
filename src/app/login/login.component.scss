@@ -14,7 +14,7 @@
 }
 
 form {
-    padding: 20px;;
+    padding: 20px;
 }
 
 .form-header-container {
@@ -35,6 +35,13 @@ form {
 .form-row {
     display: flex;
     justify-content: space-around;
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-group {

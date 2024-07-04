@@ -8,5 +8,10 @@
         <a class="tab-link" (click)="onGoToSushiListPage()">SUSHIS A LA CARTE</a>
         <a class="tab-link" href="">CONTACT</a>
         <a class="red-button" (click)="onGoToReservationPage()">RESERVER</a>
+        <div class="icon-container">
+            <a *ngIf="!isLoggedIn" (click)="onGoToLogInPage()"><img class="login-icon" src="assets/images/icons/login-icon.png" alt="login icon"></a>
+            <a *ngIf="isLoggedIn" (click)="logout()"><img class="login-icon" src="assets/images/icons/logout-icon.png" alt="login icon"></a>
+        </div>
     </nav>
+    
 </header>

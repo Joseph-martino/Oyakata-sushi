@@ -59,6 +59,20 @@ export class DisplayHeaderService {
       description: "",
       banner: "assets/images/banners/admin-login-banner.png",
       path: "/admin-login"
+    },
+
+    {
+      title: "Creer compte",
+      description: "",
+      banner: "assets/images/banners/sign-in-banner.png",
+      path: "/create-customer"
+    },
+
+    {
+      title: "Connexion",
+      description: "",
+      banner: "assets/images/banners/login-banner.png",
+      path: "/login"
     }
   ];
 

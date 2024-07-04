@@ -29,6 +29,7 @@ import localeFr from '@angular/common/locales/fr';
 import { ListSushisComponent } from './sushi/components/list-sushis/list-sushis.component';
 import { LoadingComponent } from './loading/loading.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
+import { LoginComponent } from './login/login.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -48,7 +49,8 @@ registerLocaleData(localeFr, 'fr');
     ReservationSuccessMessageComponent,
     ListSushisComponent,
     LoadingComponent,
-    CreateCustomerComponent
+    CreateCustomerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

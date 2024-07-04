@@ -1,52 +1,89 @@
-<form [formGroup]="createForm">
-
-    <div class="form-group">
-        <label for="name">Nom*</label>
-        <input id="name" type="text" formControlName="familyName" placeholder="Durant">
+<div class="glassmorphism-container">
+    <div class="form-header-container">
+        <p class="row first-row">CREER VOTRE<span class="red-hightlight"> COMPTE</span></p>
     </div>
+    
+    <form [formGroup]="createForm">
 
-    <div class="form-group">
-        <label for="name">Prénom*</label>
-        <input id="name" type="text" formControlName="firstName" placeholder="Paul">
-    </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="familyName">Nom*</label>
+                <input id="familyName" type="text" formControlName="familyName" placeholder="Durant">
+                <span *ngIf="isFieldInvalid('familyName')" class="error-message-container">Le nom est requis</span>
+            </div>
+        
+            <div class="form-group">
+                <label for="firstName">Prénom*</label>
+                <input id="firstName" type="text" formControlName="firstName" placeholder="Paul">
+                <span *ngIf="isFieldInvalid('firstName')" class="error-message-container">Le prénom est requis</span>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label for="name">Email*</label>
-        <input id="name" type="email" formControlName="email" placeholder="pauldurant@gmail.com">
-    </div>
+    
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input id="email" type="email" formControlName="email" placeholder="pauldurant@gmail.com">
+                <span *ngIf="isFieldInvalid('email')" class="error-message-container">L'email est requis</span>
+            </div>
+        
+            <div class="form-group">
+                <label for="password">Mot de passe*</label>
+                <div class="password-container">
+                    <input #passwordInput id="password" type="password" formControlName="password" placeholder="Entrez votremot de passe">
+                    <button type="button" (click)="togglePasswordVisibility('password')">
+                        <i class="fas" [ngClass]="{'fa-eye': hidePassword, 'fa-eye-slash': !hidePassword}"></i>
+                    </button>
+                </div>
+                <p *ngIf="isFieldInvalid('password')" class="error-message-container">Le mot de passe est requis</p>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label for="name">mot de passe*</label>
-        <input id="name" type="text" formControlName="password" placeholder="Entrez votremot de passe">
-    </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="address">Adresse*</label>
+                <input id="address" type="text" formControlName="addressLine" placeholder="88, rue de Paris">
+                <span *ngIf="isFieldInvalid('addressLine')" class="error-message-container">L'adresse est requise</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="passwordConfirmation">Confirmation mot de passe*</label>
+                <div class="password-container">
+                    <input #confirmationPasswordInput id="passwordConfirmation" type="password" formControlName="passwordConfirmation" placeholder="Confirmez votre mot de passe">
+                    <button type="button" (click)="togglePasswordVisibility('confirmPassword')">
+                        <i class="fas" [ngClass]="{'fa-eye': hidePassword, 'fa-eye-slash': !hidePassword}"></i>
+                    </button>
+                </div>
+                <p *ngIf="isFieldInvalid('passwordConfirmation')" class="error-message-container">La confirmation est requise</p>
+                <p *ngIf="!isPasswordConfirmationCorrect()" class="error-message-container">La confirmation est ne correspond pas</p>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label for="name">Adresse*</label>
-        <input id="name" type="text" formControlName="addressLine" placeholder="88, rue de Paris">
-    </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="zipCode">Code postal*</label>
+                <input id="zipCode" type="number" formControlName="zipCode" placeholder="75000">
+                <span *ngIf="isFieldInvalid('zipCode')" class="error-message-container">Le code postal est requis</span>
+            </div>
+        
+            <div class="form-group">
+                <label for="city">Ville*</label>
+                <input id="city" type="text" formControlName="city" placeholder="Paris">
+                <span *ngIf="isFieldInvalid('city')" class="error-message-container">La ville est requise</span>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label for="name">Code postal*</label>
-        <input id="name" type="text" formControlName="zipCode" placeholder="75000">
-    </div>
-
-    <div class="form-group">
-        <label for="name">Ville*</label>
-        <input id="name" type="text" formControlName="city" placeholder="Paris">
-    </div>
-
-    <div class="submit-button-container">
-        <button class="submit-button" type="submit" (click)="onSubmitForm()">S'inscrire</button>
-    </div>
-
-</form>
-
-<div *ngIf="customer">
-    <p>{{ customer.firstName }}</p>
-    <p>{{ customer.familyName }}</p>
-    <p>{{ customer.email }}</p>
-    <p>{{ customer.addressLine }}</p>
-    <p>{{ customer.zipCode }}</p>
-    <p>{{ customer.city }}</p>
-
+        <div class="submit-button-container">
+            <button class="submit-button" type="submit" (click)="onSubmitForm()"
+            [ngClass]="{'disabled': createForm.invalid, 'enabled': !createForm.invalid}"
+            [disabled]="createForm.invalid">S'inscrire</button>
+        </div>
+    </form>
+    <p class="bottom-text">Vous avez déjà un compte ? <span class="red-hightlight"><a class="bottomLink" (click)="onGoToLoginInPage()">Connectez vous un</a></span></p>
+    
 </div>
+
+
+
+
+

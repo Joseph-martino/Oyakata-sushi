@@ -9,4 +9,5 @@ export class Customer {
     zipCode!: string;
     city!: string;
     createdAt!: string|null;
+    token!: string;
 }

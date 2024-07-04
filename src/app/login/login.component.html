@@ -1,0 +1,42 @@
+<div class="glassmorphism-container">
+    <div class="form-header-container">
+        <p class="row first-row"><span class="red-hightlight">CONTENT</span> DE VOUS REVOIR</p>
+        <p class="row first-row">CONNECTEZ-<span class="red-hightlight">VOUS</span></p>
+    </div>
+    
+    <form [formGroup]="loginForm">
+    
+        <div class="form-input-container">
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input id="email" type="email" formControlName="email" placeholder="pauldurant@gmail.com">
+                <!--span *ngIf="isFieldInvalid('email')" class="error-message-container">L'email est requis</span-->
+            </div>
+        
+            <div class="form-group">
+                <label for="password">Mot de passe*</label>
+                <div class="password-container">
+                    <input #passwordInput id="password" type="password" formControlName="password" placeholder="Entrez votremot de passe">
+                    <button type="button" (click)="togglePasswordVisibility()">
+                        <i class="fas" [ngClass]="{'fa-eye': hidePassword, 'fa-eye-slash': !hidePassword}"></i>
+                    </button>
+                </div>
+                <!--p *ngIf="isFieldInvalid('password')" class="error-message-container">Le mot de passe est requis</p-->
+            </div>
+
+            <div class="submit-button-container">
+                <button class="submit-button" type="submit" (click)="onSubmitForm()"
+                [ngClass]="{'disabled': loginForm.invalid, 'enabled': !loginForm.invalid}"
+                [disabled]="loginForm.invalid">Se connecter</button>
+            </div>
+        </div>
+    </form>
+    <p class="bottom-text">Pas de compte ? Créer en <span class="red-hightlight"><a class="bottomLink" (click)="onGoToSignInPage()">un</a></span></p>
+    
+</div>
+
+
+
+
+
+

@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ReservationComponent } from './reservation/reservation.component';
 import { ListSushisComponent } from './sushi/components/list-sushis/list-sushis.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: "", component: HomepageComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "list-sushis", component: ListSushisComponent},
   { path: "reservation", component: ReservationComponent},
   { path: "create-customer", component: CreateCustomerComponent},
+  { path: "login", component: LoginComponent},
   { path: "404-error", component: PageNotFoundComponent },
   { path: "**", redirectTo: "/404-error"}
 ];

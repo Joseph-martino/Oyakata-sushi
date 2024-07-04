@@ -41,11 +41,11 @@ export class ReservationComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        //this.emailRegex = /^[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/;
+        this.emailRegex = /^[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/;
         this.reservationForm = this.formBuilder.group({
             familyName: [null, Validators.required],
             firstName: [null, Validators.required],
-            email: [null, Validators.required /*[Validators.required, Validators.pattern(this.emailRegex)]*/],
+            email: [null, [Validators.required, Validators.pattern(this.emailRegex)]],
             numberOfPersons: [null, [Validators.required, Validators.min(1), Validators.max(9)]],
             reservationTime: [null, Validators.required],
             reservationDate: [null, Validators.required]
