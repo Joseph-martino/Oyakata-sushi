@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit{
 
   onSubmitForm():void{
     if(this.loginForm.valid){
-      console.log("login test");
+      //console.log("login test");
       this.customerService.login(this.loginForm.value).subscribe({
         next: (response) => {
           console.log('Customer logged successfully', response);

@@ -1,0 +1,69 @@
+<div class="title-container">
+    <h2 class="menu-page-title">PROFIL</h2>
+    <img src="assets/images/pages-pictures/cercle.png" alt="circle-picture">
+</div>
+
+<div class="customer-informations-container">
+    <div *ngIf="customer" class="customer-informations-content">
+        <h1 class="customer-name-container">{{ customer.firstName | uppercase}} {{ customer.familyName | uppercase}}</h1>
+
+        <div class="customer-informations-wrapper">
+            <div class="customer-informations-container">
+                <div class="customer-row-information">
+                    <p><span class="label">Email:</span> {{ customer.email}}</p>
+                </div>
+            </div>
+    
+            <div class="customer-informations-container">
+                <div class="customer-row-information">
+                    <p><span class="label">Adresse: </span>{{ customer.addressLine}}</p>
+                </div>
+
+                <div class="customer-row-information">
+                    <p><span class="label">Code postal:</span> {{ customer.zipCode}}</p>
+                </div>
+
+                <div class="customer-row-information">
+                    <p><span class="label">Ville:</span> {{ customer.city}}</p>
+                </div>
+            </div>
+        </div> 
+        
+        <div class="reservations-informations-wrapper">
+            <h3 class="label">Mes réservations:</h3>
+            <div class="reservations-container">
+                <div class="customer-informations-container" *ngFor="let reservation of customerReservations$ | async">
+                    <div class="reservation-row-information">
+                        <p><span class="label">Numéro de la réservaton:</span> {{ reservation.reservationNumber }}</p>
+                        <p><span class="label">Nombre de personne:</span> {{ reservation.numberOfPersons}}</p>
+                        <p><span class="label">Date de la réservation:</span> {{ reservation.reservationDate | date:'dd/MM/yyyy HH:mm'}}</p>
+                        <div class="horizontal-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <h3>Mes réservations:</h3>
+        <div *ngFor="let reservation of customer.reservations">
+            <p>Numéro de la réservaton: {{ reservation.reservationNumber }}</p>
+            <p>Nombre de personne: {{ reservation.numberOfPersons}}</p>
+            <p>Date de la réservation: {{ reservation.reservationDate | date:'dd/MM/yyyy HH:mm'}}</p>
+        </div> -->
+
+        <div class="orders-informations-wrapper">
+            <h3 class="label">Mes Commandes:</h3>
+            <div class="orders-container">
+                <div class="customer-informations-container" *ngFor="let order of customerOrders$ | async">
+                    <div class="reservation-row-information">
+                        <p><span class="label">Numéro de la commande</span> {{ order.commandeNumber }}</p>
+                        <p><span class="label">Référence:</span> {{ order.reference}}</p>
+                        <p><span class="label">Date de la commande:</span> {{ order.createdDate| date:'dd/MM/yyyy HH:mm'}}</p>
+                        <div class="horizontal-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+<a (click)="onGoToHomePage()">Homepage</a>

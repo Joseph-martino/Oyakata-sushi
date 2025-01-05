@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Reservation } from '../models/Reservation';
 import { Observable, catchError, of, switchMap, tap } from 'rxjs';
+import { CustomerService } from './customer.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,14 @@ export class ReservationService {
   reservation!: Reservation;
   reservationNumber!: number;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private customerService: CustomerService) { }
+
+  getCustomerReservations(customerId: number): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`http://localhost:8080/core/rest/reservation/totalCustomerReservations/${customerId}`).pipe(
+      tap(customerReservationsList => this.logInfo(customerReservationsList)),
+      catchError(error => this.handleError(error, []))
+    );
+  }
 
 
 //   createReservation(formValue: {firstName: string, familyName: string, email: string, numberOfPersons: number, reservationDate: string}): Observable<Reservation> {
@@ -60,10 +68,19 @@ createReservation(formValue: {firstName: string, familyName: string, email: stri
               console.log("service: " + this.reservation.reservationDate);
           } else {
               console.error("Invalid date format: ", formValue.reservationDate);
-              return of(null); // Retourner un observable null si le format est invalide
+              return of(null); // Je retourne un observable null si le format est invalide
           }
 
-          console.log(this.reservation);
+          // const loggedInCustomer = this.customerService.getLoggedInCustomer();
+          // if (loggedInCustomer) {
+          //   console.log("customerId: " + loggedInCustomer.customerId); 
+          //   this.reservation.customerId = loggedInCustomer.customerId;
+          //   console.log("titiEtCoco");
+          //   console.table(this.reservation);
+          // } else {
+          //   console.error("No logged in customer found");
+          //   return of(null); // Je retourne un observable null si aucun client connecté n'est trouvé
+          // }
 
           return this.http.post<Reservation>('http://localhost:8080/core/rest/reservation/create', this.reservation);
       })

@@ -30,6 +30,8 @@ import { ListSushisComponent } from './sushi/components/list-sushis/list-sushis.
 import { LoadingComponent } from './loading/loading.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -50,7 +52,9 @@ registerLocaleData(localeFr, 'fr');
     ListSushisComponent,
     LoadingComponent,
     CreateCustomerComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

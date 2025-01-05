@@ -73,6 +73,13 @@ export class DisplayHeaderService {
       description: "",
       banner: "assets/images/banners/login-banner.png",
       path: "/login"
+    },
+
+    {
+      title: "Profile",
+      description: "",
+      banner: "assets/images/banners/profile-banner.png",
+      path: "/profile"
     }
   ];
 

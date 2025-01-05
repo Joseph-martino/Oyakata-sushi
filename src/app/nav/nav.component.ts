@@ -41,6 +41,10 @@ export class NavComponent implements OnInit{
     this.router.navigateByUrl('login');
   }
 
+  onGoToProfilePage(){
+    this.router.navigateByUrl('profile');
+  }
+
   logout(){
     console.log("nav logout");
     console.log("isLoggedIn: " + this.isLoggedIn);

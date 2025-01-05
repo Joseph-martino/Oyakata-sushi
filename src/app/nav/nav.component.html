@@ -10,7 +10,9 @@
         <a class="red-button" (click)="onGoToReservationPage()">RESERVER</a>
         <div class="icon-container">
             <a *ngIf="!isLoggedIn" (click)="onGoToLogInPage()"><img class="login-icon" src="assets/images/icons/login-icon.png" alt="login icon"></a>
-            <a *ngIf="isLoggedIn" (click)="logout()"><img class="login-icon" src="assets/images/icons/logout-icon.png" alt="login icon"></a>
+            <a *ngIf="isLoggedIn"><img class="login-icon" src="assets/images/icons/basket-icon.png" alt="basket icon"></a>
+            <a *ngIf="isLoggedIn" (click)="logout()"><img class="login-icon" src="assets/images/icons/logout-icon.png" alt="logout icon"></a>
+            <a *ngIf="isLoggedIn" (click)="onGoToProfilePage()">Profil</a>
         </div>
     </nav>
     

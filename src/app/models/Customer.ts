@@ -1,6 +1,9 @@
+import { Commande } from "./Commande";
+import { Reservation } from "./Reservation";
+
 export class Customer {
 
-    id!: number;
+    customerId!: number;
     firstName!: string;
     familyName!: string;
     email!: string;
@@ -10,4 +13,6 @@ export class Customer {
     city!: string;
     createdAt!: string|null;
     token!: string;
+    reservations!: Reservation[];
+    commandes!: Commande[];
 }

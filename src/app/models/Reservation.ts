@@ -7,4 +7,7 @@ export class Reservation {
     email!: string;
     numberOfPersons!: number;
     reservationDate!: Date;
+    createdAt!: Date;
+    updatedAt!: Date;
+    customerId!: number;
 }

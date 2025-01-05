@@ -4,6 +4,7 @@ import { DatePipe } from '@angular/common';
 import { ReservationService } from '../services/reservation.service';
 import { Reservation } from '../models/Reservation';
 import { Router } from '@angular/router';
+import { CustomerService } from '../services/customer.service';
 
 @Component({
 selector: 'app-reservation',
@@ -32,12 +33,14 @@ export class ReservationComponent implements OnInit {
         new Date('2024-12-25'),  // Noël
         new Date('2025-01-01')  // Jour de l'An
     ];
+    isLoggedIn: boolean = false;
 
     constructor(
     private formBuilder: FormBuilder,
     private reservationService: ReservationService,
     private datePipe: DatePipe,
-    private router: Router
+    private router: Router,
+    private customerService: CustomerService
     ) {}
 
     ngOnInit(): void {
@@ -50,6 +53,9 @@ export class ReservationComponent implements OnInit {
             reservationTime: [null, Validators.required],
             reservationDate: [null, Validators.required]
         });
+        this.customerService.isLoggedIn().subscribe(
+            (isLoggedIn) => this.isLoggedIn = isLoggedIn
+        );
     }
 
     dateFilter = (d: Date | null): boolean => {
@@ -87,6 +93,8 @@ export class ReservationComponent implements OnInit {
             const reservationDateControl = this.reservationForm.get('reservationDate');
             const reservationTimeControl = this.reservationForm.get('reservationTime');
     
+    
+    
             if (reservationDateControl && reservationTimeControl) {
                 const dateValue: Date = reservationDateControl.value;
                 const timeString: string = reservationTimeControl.value;
@@ -109,7 +117,8 @@ export class ReservationComponent implements OnInit {
                 this.reservationForm.patchValue({ reservationDate: formattedDate });
     
                 console.log(this.reservationForm.value);
-    
+
+
                 this.reservationService.createReservation(this.reservationForm.value).subscribe({
                     next: (reservation) => {
                         this.reservation = reservation;

@@ -37,8 +37,15 @@ export class CustomerService {
 
       console.log(this.customer);
 
-      return this.http.post<Customer>('http://localhost:8080/core/rest/customer/create', this.customer);
-
+      return this.http.post<Customer>('http://localhost:8080/core/rest/customer/create', this.customer).pipe(
+        tap((customer) => {
+          this.logInfo(customer),
+          localStorage.setItem('authToken', customer.token);
+          this.loggedIn.next(true);
+          console.log("token: " + customer.token);
+      }),
+        catchError((error) => this.handleError(error, undefined))
+      )
     }
 
   
@@ -59,8 +66,8 @@ export class CustomerService {
         tap((customer) => {
           this.logInfo(customer),
           localStorage.setItem('authToken', customer.token);
+          localStorage.setItem('customer', JSON.stringify(customer));
           this.loggedIn.next(true);
-          console.log("token: " + customer.token);
       }),
         catchError((error) => this.handleError(error, undefined))
       );
@@ -74,9 +81,21 @@ export class CustomerService {
       return this.loggedIn.asObservable();
     }
 
+    getLoggedInCustomer(): Customer|null {
+      const customerJson = localStorage.getItem('customer');
+      if (customerJson) {
+        const customer: Customer = JSON.parse(customerJson) as Customer;
+        console.log("LoggedIn Customer: ", customer); // Log l'objet Customer récupéré
+        return customer;
+      }
+      console.log("No customer found in localStorage"); // Log si aucun customer n'est trouvé
+      return null;
+    }
+
     logout():void{
       console.log("logout service");
       localStorage.removeItem('authToken');
+      localStorage.removeItem('customer');
       this.loggedIn.next(false);
       console.log("isLoggedIn: " + this.isLoggedIn);
     }
