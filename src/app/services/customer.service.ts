@@ -34,6 +34,11 @@ export class CustomerService {
       this.customer.addressLine = formValue.addressLine;
       this.customer.zipCode = formValue.zipCode;
       this.customer.city = formValue.city;
+        // Créez une copie de l'objet sans `currentCommande`
+  const sanitizedCustomer = { ...this.customer };
+  delete sanitizedCustomer.currentCommande;
+
+  console.log(sanitizedCustomer);
 
       console.log(this.customer);
 
@@ -41,8 +46,9 @@ export class CustomerService {
         tap((customer) => {
           this.logInfo(customer),
           localStorage.setItem('authToken', customer.token);
+          localStorage.setItem('customer', JSON.stringify(customer));
           this.loggedIn.next(true);
-          console.log("token: " + customer.token);
+          //console.log("token: " + customer.token);
       }),
         catchError((error) => this.handleError(error, undefined))
       )
@@ -85,10 +91,10 @@ export class CustomerService {
       const customerJson = localStorage.getItem('customer');
       if (customerJson) {
         const customer: Customer = JSON.parse(customerJson) as Customer;
-        console.log("LoggedIn Customer: ", customer); // Log l'objet Customer récupéré
+        console.log("LoggedIn Customer: ", customer); 
         return customer;
       }
-      console.log("No customer found in localStorage"); // Log si aucun customer n'est trouvé
+      console.log("No customer found in localStorage"); 
       return null;
     }
 

@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit{
 
   onSubmitForm():void{
     if(this.loginForm.valid){
-      //console.log("login test");
       this.customerService.login(this.loginForm.value).subscribe({
         next: (response) => {
           console.log('Customer logged successfully', response);
@@ -48,7 +47,6 @@ export class LoginComponent implements OnInit{
           // console.log("response: " + response.token);
           // console.log("localstorage: " + localStorage.getItem);
           this.router.navigateByUrl("");
-  
         },
         error: (error) => {
           console.error('Error logging customer', error);

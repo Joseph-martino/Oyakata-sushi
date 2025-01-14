@@ -15,4 +15,5 @@ export class Customer {
     token!: string;
     reservations!: Reservation[];
     commandes!: Commande[];
+    currentCommande?: Commande /*| null = null*/;
 }

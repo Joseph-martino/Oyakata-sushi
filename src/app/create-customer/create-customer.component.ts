@@ -71,6 +71,9 @@ export class CreateCustomerComponent implements OnInit{
         next: (response) => {
           console.log('Customer created successfully', response);
           // Stocker le JWT dans le localStorage après la création du compte
+          const customer: Customer = response;
+          localStorage.setItem("customer", JSON.stringify(customer));
+          console.log("create customer : " + localStorage.getItem("customer"));
           // localStorage.setItem('accessToken', response.token);
           // console.log("response: " + response.token);
           // console.log("localstorage: " + localStorage.getItem);

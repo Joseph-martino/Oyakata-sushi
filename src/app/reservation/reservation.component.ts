@@ -5,6 +5,7 @@ import { ReservationService } from '../services/reservation.service';
 import { Reservation } from '../models/Reservation';
 import { Router } from '@angular/router';
 import { CustomerService } from '../services/customer.service';
+import { Customer } from '../models/Customer';
 
 @Component({
 selector: 'app-reservation',
@@ -34,6 +35,7 @@ export class ReservationComponent implements OnInit {
         new Date('2025-01-01')  // Jour de l'An
     ];
     isLoggedIn: boolean = false;
+    customer!: Customer|null;
 
     constructor(
     private formBuilder: FormBuilder,
@@ -56,6 +58,8 @@ export class ReservationComponent implements OnInit {
         this.customerService.isLoggedIn().subscribe(
             (isLoggedIn) => this.isLoggedIn = isLoggedIn
         );
+
+        this.customer = this.customerService.getLoggedInCustomer();
     }
 
     dateFilter = (d: Date | null): boolean => {
@@ -118,8 +122,7 @@ export class ReservationComponent implements OnInit {
     
                 console.log(this.reservationForm.value);
 
-
-                this.reservationService.createReservation(this.reservationForm.value).subscribe({
+                this.reservationService.createReservation(this.reservationForm.value, this.customer).subscribe({
                     next: (reservation) => {
                         this.reservation = reservation;
                         this.showSuccessMessage = true;

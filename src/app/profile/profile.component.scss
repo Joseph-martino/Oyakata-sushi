@@ -1,63 +1,86 @@
-.title-container {
-    position: relative;
-    margin-bottom: 50px;
-    height: 82px;
+.profile-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
 
-    img {
-        height: 100px;
-        position: absolute;
-        left: 42%;
-        bottom: 10%;
-    }
+.title-container {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .menu-page-title {
-    text-transform: uppercase;
-    text-align: center;
-    font-family: 'Raleway-ExtraLight';
-    font-size: 2.5rem;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.customer-name-container {
-    text-align: center;
-    font-size: 2.3rem;
-}
-
-.customer-informations-wrapper {
-    width: 65%;
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    padding: 60px
 }
 
-.customer-row-information {
-    display: flex;
+.customer-informations {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.customer-name {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.customer-details p {
+    margin: 5px 0;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.reservation, .order {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .label {
     font-weight: bold;
 }
 
-.reservations-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.reservations-informations-wrapper {
-    width: 65%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    padding: 60px
-}
-
-.reservation-row-information {
-    display: flex;
-    flex-direction: column;
-}
-
 .horizontal-line {
     height: 1px;
-    background-color: black;
+    background-color: #ddd;
+    margin: 10px 0;
+}
+
+.homepage-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.homepage-link a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.homepage-link a:hover {
+    text-decoration: underline;
 }

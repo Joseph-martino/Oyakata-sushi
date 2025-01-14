@@ -76,10 +76,17 @@ export class DisplayHeaderService {
     },
 
     {
-      title: "Profile",
+      title: "Mon profil",
       description: "",
       banner: "assets/images/banners/profile-banner.png",
       path: "/profile"
+    },
+
+    {
+      title: "Mon panier",
+      description: "",
+      banner: "assets/images/banners/cart-banner.png",
+      path: "/cart"
     }
   ];
 

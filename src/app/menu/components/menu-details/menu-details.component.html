@@ -27,7 +27,7 @@
                 <button *ngIf="isLoggedIn" (click)="onIncreaseQuantity()">+</button>
                 <p *ngIf="isLoggedIn">{{ quantity }}</p>
                 <button *ngIf="isLoggedIn" (click)="onDecreaseQuantity()">-</button>
-                <button *ngIf="isLoggedIn" (click)="onValidateOrder()">Commander</button>
+                <button *ngIf="isLoggedIn" (click)="onAddMenuToOrder()">Commander</button>
             </div>
             <a class="back-button" (click)="onGoToMenusList()">RETOUR</a>
         </div>

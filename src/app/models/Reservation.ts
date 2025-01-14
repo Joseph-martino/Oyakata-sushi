@@ -1,3 +1,5 @@
+import { Customer } from "./Customer";
+
 export class Reservation {
 
     id!: number;
@@ -9,5 +11,6 @@ export class Reservation {
     reservationDate!: Date;
     createdAt!: Date;
     updatedAt!: Date;
-    customerId!: number;
+    //customerId!: number;
+    customer!: Omit<Customer, 'token'>;
 }

@@ -1,0 +1,144 @@
+.cart-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.cart-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cart-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.header-item {
+  flex: 1;
+  text-align: center;
+}
+
+.commande-line {
+  margin-bottom: 15px;
+}
+
+.commande-bandeau {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.commande-image img {
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.menu-link{
+  cursor: pointer;
+}
+
+.commande-info {
+  flex: 1;
+  text-align: center;
+}
+
+.menu-name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.commande-price,
+.commande-quantity,
+.commande-actions {
+  flex: 1;
+  text-align: center;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.quantity-btn:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
+
+.delete-button {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total-row {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.validation-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.validation-button:hover {
+  background: #218838;
+}
+
+.empty-cart {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+}

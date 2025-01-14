@@ -52,18 +52,12 @@ export class MenuDetailsComponent implements OnInit{
     }
   }
 
-  onValidateOrder() {
+  onAddMenuToOrder() {
     if (this.quantity > 0) {
       console.log("commande ok quantité: " + this.quantity);
       if (this.menu) {
-        this.orderService.addMenuToOrderOrCreateOrder(this.quantity, this.menu).subscribe({
-          next: (response) => {
-            console.log('order created successfully', response);
-          },
-          error: (error) => {
-            console.error('Error logging customer', error);
-          }
-        });
+        this.orderService.addMenuToOrderOrCreateOrder(this.quantity, this.menu);
+        this.router.navigateByUrl("list-menus");
       }
     }
   }

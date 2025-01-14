@@ -18,7 +18,9 @@ export class NavComponent implements OnInit{
   ngOnInit(): void {
     this.customerService.isLoggedIn().subscribe(
       (isLoggedIn) => this.isLoggedIn = isLoggedIn
-    );  
+    ); 
+    
+    console.log("navigation: " + localStorage.getItem("customer"));
   }
 
   onGoToHomePage(){
@@ -43,6 +45,10 @@ export class NavComponent implements OnInit{
 
   onGoToProfilePage(){
     this.router.navigateByUrl('profile');
+  }
+
+  onGoToCartPage(){
+    this.router.navigateByUrl("cart");
   }
 
   logout(){

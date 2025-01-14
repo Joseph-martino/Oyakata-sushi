@@ -10,5 +10,9 @@ export class Commande {
     //customer!: Customer;
     customer!: Omit<Customer, 'token'>;
     commandLineList!: CommandLine[];
+    status!: string;
+    /*test*/
+    totalPrice!: number;
+    totalPriceWithDeliveryFee!: number;
     
 }

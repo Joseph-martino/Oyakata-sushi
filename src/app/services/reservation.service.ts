@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Reservation } from '../models/Reservation';
 import { Observable, catchError, of, switchMap, tap } from 'rxjs';
 import { CustomerService } from './customer.service';
+import { Customer } from '../models/Customer';
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +50,7 @@ export class ReservationService {
 //     );
 // }
 
-createReservation(formValue: {firstName: string, familyName: string, email: string, numberOfPersons: number, reservationDate: string}): Observable<Reservation|null> {
+createReservation(formValue: {firstName: string, familyName: string, email: string, numberOfPersons: number, reservationDate: string}, customer: Customer|null): Observable<Reservation|null> {
   return this.getNumberTotalOfReservations().pipe(
       switchMap(reservationNumber => {
           this.reservationNumber = reservationNumber +1;
@@ -60,6 +61,10 @@ createReservation(formValue: {firstName: string, familyName: string, email: stri
           this.reservation.reservationNumber = `N°${this.reservationNumber.toString()}`;
           this.reservation.email = formValue.email;
           this.reservation.numberOfPersons = formValue.numberOfPersons;
+          if(customer){
+            const { token, ...customerWithoutToken } = customer;
+            this.reservation.customer = customerWithoutToken;
+          }
 
           // Valider et assigner la date
           const dateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/;

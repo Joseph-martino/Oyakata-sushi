@@ -1,1 +1,113 @@
-<p>cart works!</p>
+<div class="cart-page">
+  <h1 class="cart-title">Mon panier</h1>
+
+  <div *ngIf="customer">
+    <div
+      class="cart-container"
+      *ngIf="customer.currentCommande && customer.currentCommande.commandLineList.length > 0; else noOrders">
+      <div class="cart-header">
+        <div class="header-item">Image</div>
+        <div class="header-item">Nom du menu</div>
+        <div class="header-item">Prix</div>
+        <div class="header-item">Quantité</div>
+        <div class="header-item">Actions</div>
+      </div>
+
+      <div
+        class="commande-line"
+        *ngFor="let commandeLine of customer.currentCommande.commandLineList; let i = index"
+      >
+        <div class="commande-bandeau">
+          <div class="commande-image">
+            <a class="menu-link" (click)="onGoToMenuPage(commandeLine.menu.id)">
+              <img
+                [src]="'assets/images/menus-thumbnails/' + commandeLine.menu.picture"
+                alt="{{ commandeLine.menu.name }}"
+                class="menu-image"
+              />
+            </a>
+          </div>
+
+          <div class="commande-info">
+            <a class="menu-link" (click)="onGoToMenuPage(commandeLine.menu.id)">
+              <h2 class="menu-name">{{ commandeLine.menu.name }}</h2>
+            </a>
+          </div>
+
+          <div class="commande-price">
+            <p>{{ commandeLine.menu.price | currency }}</p>
+          </div>
+
+          <div class="commande-quantity">
+            <div class="quantity-control">
+              <button
+                class="quantity-btn"
+                (click)="updateQuantity(commandeLine, -1)"
+                [disabled]="commandeLine.quantity <= 1"
+              >
+                -
+              </button>
+              <span class="quantity">{{ commandeLine.quantity }}</span>
+              <button
+                class="quantity-btn"
+                (click)="updateQuantity(commandeLine, 1)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="commande-actions">
+            <button
+              class="delete-button"
+              (click)="deleteCommandeLine(i)"
+            >
+              Supprimer
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span class="label">Sous-total :</span>
+          <span class="value">{{ customer.currentCommande.totalPrice | currency }}</span>
+        </div>
+
+        <div class="summary-row">
+          <span class="label">Frais de livraison :</span>
+          <span class="value">
+            {{
+              customer.currentCommande.totalPrice < 100
+                ? (shippingCost | currency)
+                : 'Gratuit'
+            }}
+          </span>
+        </div>
+
+        <div class="summary-row total-row">
+          <span class="label">Total :</span>
+          <span class="value">
+            {{
+              customer.currentCommande.totalPrice < 100
+                ? (customer.currentCommande.totalPrice + shippingCost | currency)
+                : (customer.currentCommande.totalPrice | currency)
+            }}
+                <!-- {{ totalOrderPriceWithShippingCost }} -->
+          </span>
+        </div>
+      </div>
+
+      <div class="cart-footer">
+        <button class="validation-button" (click)="onConfirmOrder()">Commander</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noOrders>
+    <div class="empty-cart">
+      <p>Votre panier est vide.</p>
+    </div>
+  </ng-template>
+</div>
