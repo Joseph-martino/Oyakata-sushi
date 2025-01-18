@@ -10,6 +10,9 @@ import { CreateCustomerComponent } from './create-customer/create-customer.compo
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
+import { SuccessComponent } from './success/success.component';
+import { CancelComponent } from './cancel/cancel.component';
 
 const routes: Routes = [
   { path: "", component: HomepageComponent},
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: "profile", component: ProfileComponent},
   { path: "cart", component: CartComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'success', component: SuccessComponent },
+  { path: 'cancel', component: CancelComponent },
   { path: "404-error", component: PageNotFoundComponent },
   { path: "**", redirectTo: "/404-error"}
 ];

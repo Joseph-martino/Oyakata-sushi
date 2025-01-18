@@ -87,6 +87,13 @@ export class DisplayHeaderService {
       description: "",
       banner: "assets/images/banners/cart-banner.png",
       path: "/cart"
+    },
+
+    {
+      title: "Confirmer vos informations",
+      description: "",
+      banner: "assets/images/banners/payment-banner.png",
+      path: "/payment"
     }
   ];
 

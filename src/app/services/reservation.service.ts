@@ -86,7 +86,6 @@ createReservation(formValue: {firstName: string, familyName: string, email: stri
           //   console.error("No logged in customer found");
           //   return of(null); // Je retourne un observable null si aucun client connecté n'est trouvé
           // }
-
           return this.http.post<Reservation>('http://localhost:8080/core/rest/reservation/create', this.reservation);
       })
   );

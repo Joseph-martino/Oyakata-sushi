@@ -1,0 +1,37 @@
+<form [formGroup]="customerInformationsForm">
+    
+    <div class="form-input-container">
+        <div class="form-group">
+            <label for="email">Email*</label>
+            <input id="email" type="email" formControlName="email" placeholder="pauldurant@gmail.com">
+            <!--span *ngIf="isFieldInvalid('email')" class="error-message-container">L'email est requis</span-->
+        </div>
+
+        <div class="form-group">
+            <label for="address">Adresse*</label>
+            <input id="address" type="text" formControlName="address" placeholder="10 rue de Paris">
+            <!--span *ngIf="isFieldInvalid('email')" class="error-message-container">L'email est requis</span-->
+        </div>
+
+        <div class="form-group">
+            <label for="city">Ville*</label>
+            <input id="city" type="text" formControlName="city" placeholder="Paris">
+            <!--span *ngIf="isFieldInvalid('email')" class="error-message-container">L'email est requis</span-->
+        </div>
+
+        <div class="form-group">
+            <label for="zipCode">Code postal*</label>
+            <input id="zipCode" type="number" formControlName="zipCode" placeholder="75000">
+            <!--span *ngIf="isFieldInvalid('email')" class="error-message-container">L'email est requis</span-->
+        </div>
+
+        <!-- <div class="submit-button-container">
+            <button class="submit-button" type="submit" (click)="onSubmitForm()"
+            [ngClass]="{'disabled': loginForm.invalid, 'enabled': !loginForm.invalid}"
+            [disabled]="loginForm.invalid">Se connecter</button>
+        </div> -->
+    </div>
+</form>
+<div class="button-container">
+    <button (click)="handlePayment()">PAYER</button>
+</div>

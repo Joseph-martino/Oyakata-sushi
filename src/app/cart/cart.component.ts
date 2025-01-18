@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
 
     const customerJson = localStorage.getItem("customer");
-    console.log(customerJson);
+    //console.log(customerJson);
     if(customerJson){
       this.customer = JSON.parse(customerJson);
     } 
@@ -32,11 +32,18 @@ export class CartComponent implements OnInit {
       this.onGetShippingCost(this.customer.currentCommande.totalPrice);
       this.customer.currentCommande.totalPriceWithDeliveryFee = this.customer.currentCommande.totalPrice + this.shippingCost;
       console.log("ngOnInit total avec frais de port: " + this.customer.currentCommande.totalPriceWithDeliveryFee);
+      console.log("prix en centimes: " + this.customer.currentCommande.totalPriceWithDeliveryFee * 100);
     }
+    localStorage.setItem("customer", JSON.stringify(this.customer));
+    console.log("customer cart: " + localStorage.getItem("customer"));
   }
 
   onGoToMenuPage(menuId: number):void{
     this.router.navigateByUrl(`list-menus/${menuId}`);
+  }
+
+  onGoToPayment(){
+    this.router.navigateByUrl("payment");
   }
 
   // updateDeliveryFee(): number {
@@ -98,21 +105,21 @@ export class CartComponent implements OnInit {
     this.shippingCost = this.orderService.defineShppingCosts(orderTotalPrice);
   }
   
-  onConfirmOrder(){
-    if(this.customer.currentCommande){
-      console.table("commande courante: " + this.customer.currentCommande.totalPrice);
-      this.orderService.validateOrder(this.customer.currentCommande).subscribe({
-        next: (response) => {
-          console.log('order created successfully', response);
-          this.customer.currentCommande = undefined;
-          localStorage.setItem("customer", JSON.stringify(this.customer));
-        },
-        error: (error) => {
-          console.error('Error logging customer', error);
-        }
-      }
+  // onConfirmOrder(){
+  //   if(this.customer.currentCommande){
+  //     console.table("commande courante: " + this.customer.currentCommande.totalPrice);
+  //     this.orderService.validateOrder(this.customer.currentCommande).subscribe({
+  //       next: (response) => {
+  //         console.log('order created successfully', response);
+  //         this.customer.currentCommande = undefined;
+  //         localStorage.setItem("customer", JSON.stringify(this.customer));
+  //       },
+  //       error: (error) => {
+  //         console.error('Error logging customer', error);
+  //       }
+  //     }
 
-      );
-    }
-  }
+  //     );
+  //   }
+  // }
 }

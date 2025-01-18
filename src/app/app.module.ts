@@ -32,6 +32,9 @@ import { CreateCustomerComponent } from './create-customer/create-customer.compo
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PaymentComponent } from './payment/payment.component';
+import { SuccessComponent } from './success/success.component';
+import { CancelComponent } from './cancel/cancel.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -54,7 +57,11 @@ registerLocaleData(localeFr, 'fr');
     CreateCustomerComponent,
     LoginComponent,
     CartComponent,
-    ProfileComponent
+    ProfileComponent,
+    PaymentComponent,
+    SuccessComponent,
+    CancelComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

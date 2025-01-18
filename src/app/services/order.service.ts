@@ -40,9 +40,9 @@ export class OrderService {
     //on va chercher si le customer a déjà créer une commande (ajouter des menus à sa commande, si non on crée la commande, si oui on ajoute à la commande courante)
     if(!customer.currentCommande){
       const currentOrder: Commande = new Commande();
-      currentOrder.commandeNumber = this.generateOrderNumber();
-      currentOrder.createdDate = new Date();
-      currentOrder.reference = "REF" + new Date().getTime();
+      //currentOrder.commandeNumber = this.generateOrderNumber();
+      //currentOrder.createdDate = new Date();
+      //currentOrder.reference = "REF" + new Date().getTime();
       currentOrder.customer = customerWithoutToken;
       currentOrder.commandLineList = [];
       customer.currentCommande = currentOrder;
@@ -93,6 +93,7 @@ export class OrderService {
   }
 
   validateOrder(commande :Commande){
+    console.log('Validation de la commande côté front-end:', commande);
     return this.http.post<Commande>('http://localhost:8080/core/rest/commande/create', commande).pipe(
       tap((response) => this.logInfo(response)),
       catchError((error) => this.handleError(error, undefined))
